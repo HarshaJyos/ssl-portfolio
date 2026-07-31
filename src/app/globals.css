@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-dm-serif: var(--font-dm-serif), serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-general-sans: var(--font-general-sans), sans-serif;
+
+  --color-primary-dark: #014865;
+  --color-primary-light: #00acb7;
+  --color-accent: #188c9c;
+  --color-accent-dark: #00728a;
+}
+
+:root {
+  --background: #f6f3f3;
+  --foreground: #000000;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
