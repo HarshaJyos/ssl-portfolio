@@ -55,12 +55,12 @@ export default function Hero({ onApply }: HeroProps) {
           <div className="flex flex-wrap gap-6 pt-6 border-t border-[#014865]/20 text-[#014865]">
             {/* AMFI */}
             <div className="flex items-center gap-3">
-              <Image 
-                src="/assets/imgHeaderLogoImage.png" 
-                width={32} 
-                height={32} 
-                className="w-8 h-8 rounded-full bg-white shadow-sm border border-gray-100 p-0.5" 
-                alt="AMFI Logo" 
+              <Image
+                src="/assets/imgHeaderLogoImage.png"
+                width={32}
+                height={32}
+                className="w-8 h-8 object-contain"
+                alt="AMFI Logo"
               />
               <div>
                 <h4 className="font-['DM_Serif_Display'] text-base font-semibold leading-tight text-[#014865]">AMFI Registered</h4>
@@ -69,12 +69,12 @@ export default function Hero({ onApply }: HeroProps) {
             </div>
             {/* SEBI */}
             <div className="flex items-center gap-3">
-              <Image 
-                src="/assets/imgHeaderBadgeImage.png" 
-                width={40} 
-                height={32} 
-                className="w-10 h-8 object-contain" 
-                alt="SEBI Logo" 
+              <Image
+                src="/assets/imgHeaderBadgeImage.png"
+                width={40}
+                height={32}
+                className="w-10 h-8 object-contain"
+                alt="SEBI Logo"
               />
               <div>
                 <h4 className="font-['DM_Serif_Display'] text-base font-semibold leading-tight text-[#014865]">SEBI Registered</h4>
