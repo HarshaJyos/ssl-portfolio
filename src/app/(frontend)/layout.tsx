@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 
 import { cn } from '@/utilities/ui'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
+import { Manrope, DM_Serif_Display, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
-import { Footer } from '@/Footer/Component'
-import { Header } from '@/Header/Component'
+import Footer from '@/components/home/Footer'
+import Header from '@/components/home/Header'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
@@ -17,17 +16,41 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const dmSerifDisplay = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-general-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html className={`${manrope.variable} ${dmSerifDisplay.variable} ${inter.variable} ${plusJakartaSans.variable} h-full antialiased`} lang="en" suppressHydrationWarning>
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body>
+      <body className="min-h-full flex flex-col bg-[#f6f3f3] text-black">
         <Providers>
           <AdminBar
             adminBarProps={{
