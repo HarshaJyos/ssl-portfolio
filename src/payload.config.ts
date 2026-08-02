@@ -1,4 +1,13 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import dns from 'node:dns'
+
+// Force Google DNS resolvers to handle Atlas SRV lookups (resolves querySrv ECONNREFUSED)
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4'])
+} catch (e) {
+  // Ignore DNS config failures
+}
+
 import sharp from 'sharp'
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
