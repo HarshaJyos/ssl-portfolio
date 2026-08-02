@@ -5,8 +5,8 @@ import { Manrope, DM_Serif_Display, Inter, Plus_Jakarta_Sans } from "next/font/g
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
-import Footer from '@/components/home/Footer'
-import Header from '@/components/home/Header'
+import { Footer } from '@/Footer/Component'
+import { Header } from '@/Header/Component'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'

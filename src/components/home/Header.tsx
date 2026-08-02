@@ -12,12 +12,12 @@ export default function Header() {
 
         {/* Logo - Png Image and Text Name beside it */}
         <div className="flex items-center gap-3">
-          <Image 
-            src="/assets/logo.png" 
-            width={36} 
-            height={36} 
-            className="h-9 w-auto object-contain" 
-            alt="SSL Fintech Icon" 
+          <Image
+            src="/assets/logo.png"
+            width={36}
+            height={36}
+            className="h-9 w-auto object-contain"
+            alt="SSL Fintech Icon"
             priority
           />
           <span className="font-['Manrope'] font-extrabold text-2xl text-[#014865] tracking-wider uppercase">
