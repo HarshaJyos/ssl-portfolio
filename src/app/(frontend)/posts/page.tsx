@@ -12,10 +12,9 @@ export const dynamic = 'force-static'
 export const revalidate = 600
 
 export default async function Page() {
-  const payload = await getPayload({ config: configPromise })
-
   let posts;
   try {
+    const payload = await getPayload({ config: configPromise })
     posts = await payload.find({
       collection: 'posts',
       depth: 1,

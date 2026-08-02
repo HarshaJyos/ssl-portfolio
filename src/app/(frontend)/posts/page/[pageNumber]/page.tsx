@@ -19,7 +19,6 @@ type Args = {
 
 export default async function Page({ params: paramsPromise }: Args) {
   const { pageNumber } = await paramsPromise
-  const payload = await getPayload({ config: configPromise })
 
   const sanitizedPageNumber = Number(pageNumber)
 
@@ -27,6 +26,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   let posts;
   try {
+    const payload = await getPayload({ config: configPromise })
     posts = await payload.find({
       collection: 'posts',
       depth: 1,

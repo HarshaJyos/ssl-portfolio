@@ -94,9 +94,8 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
   const { isEnabled: draft } = await draftMode()
 
-  const payload = await getPayload({ config: configPromise })
-
   try {
+    const payload = await getPayload({ config: configPromise })
     const result = await payload.find({
       collection: 'posts',
       draft,
