@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@config '../../../tailwind.config.mjs';
-
 @custom-variant dark (&:is([data-theme='dark'] *));
 @custom-variant sm (@media (width >= theme(--breakpoint-sm)));
 @custom-variant md (@media (width >= theme(--breakpoint-md)));
@@ -45,6 +43,16 @@
   --breakpoint-2xl: 86rem;
   --font-mono: var(--font-geist-mono);
   --font-sans: var(--font-geist-sans);
+
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-dm-serif: var(--font-dm-serif), serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-general-sans: var(--font-general-sans), sans-serif;
+
+  --color-primary-dark: #014865;
+  --color-primary-light: #00acb7;
+  --color-accent: #188c9c;
+  --color-accent-dark: #00728a;
 }
 
 @layer utilities {
@@ -212,6 +220,7 @@
   }
   body {
     @apply bg-background text-foreground min-h-[100vh] flex flex-col;
+    font-family: var(--font-inter), sans-serif;
   }
 }
 
