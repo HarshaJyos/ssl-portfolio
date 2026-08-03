@@ -27,11 +27,11 @@ export default function Header() {
 
         {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-8 text-[16px] font-semibold text-[#014865]">
-          <a href="#home" className="hover:text-[#00acb7] transition-colors">Home</a>
-          <a href="#services" className="hover:text-[#00acb7] transition-colors">Us Services</a>
-          <a href="#why-us" className="hover:text-[#00acb7] transition-colors">Why SSL Fintech</a>
-          <a href="#insights" className="hover:text-[#00acb7] transition-colors">Insights</a>
-          <a href="#contact" className="hover:text-[#00acb7] transition-colors">Contact</a>
+          <a href="/" className="hover:text-[#00acb7] transition-colors">Home</a>
+          <a href="/about" className="hover:text-[#00acb7] transition-colors">About Us</a>
+          <a href="/offerings" className="hover:text-[#00acb7] transition-colors">Offerings</a>
+          <a href="/tools" className="hover:text-[#00acb7] transition-colors">Tools</a>
+          <a href="/contact" className="hover:text-[#00acb7] transition-colors">Contact Us</a>
         </nav>
 
         {/* Mobile Hamburger Button */}
@@ -53,11 +53,11 @@ export default function Header() {
       {/* Mobile Dropdown Nav Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden mt-4 bg-white rounded-3xl p-6 shadow-xl flex flex-col gap-4 border border-gray-100 relative z-50">
-          <a href="#home" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Home</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Us Services</a>
-          <a href="#why-us" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Why SSL Fintech</a>
-          <a href="#insights" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Insights</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Contact</a>
+          <a href="/" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Home</a>
+          <a href="/about" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">About Us</a>
+          <a href="/offerings" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Offerings</a>
+          <a href="/tools" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Tools</a>
+          <a href="/contact" onClick={() => setMobileMenuOpen(false)} className="py-2 text-lg font-medium text-[#014865] hover:text-[#00acb7] border-b border-gray-100">Contact Us</a>
         </div>
       )}
     </header>

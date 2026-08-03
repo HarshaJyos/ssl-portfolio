@@ -89,10 +89,10 @@ export async function Footer() {
               })
             ) : (
               <>
-                <li><a href="#home" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#why-us" className="hover:text-white transition-colors">Why SSL Fintech</a></li>
-                <li><a href="#insights" className="hover:text-white transition-colors">Insights</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="/offerings" className="hover:text-white transition-colors">Offerings</a></li>
+                <li><a href="/tools" className="hover:text-white transition-colors">Tools</a></li>
+                <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
               </>
             )}
           </ul>

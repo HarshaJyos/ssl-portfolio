@@ -33,10 +33,10 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
   const navItems = data?.navItems || [
     { link: { type: 'custom', url: '/', label: 'Home' } },
-    { link: { type: 'custom', url: '/#services', label: 'Us Services' } },
-    { link: { type: 'custom', url: '/#why-us', label: 'Why SSL Fintech' } },
-    { link: { type: 'custom', url: '/#insights', label: 'Insights' } },
-    { link: { type: 'custom', url: '/#contact', label: 'Contact' } },
+    { link: { type: 'custom', url: '/about', label: 'About Us' } },
+    { link: { type: 'custom', url: '/offerings', label: 'Offerings' } },
+    { link: { type: 'custom', url: '/tools', label: 'Tools' } },
+    { link: { type: 'custom', url: '/contact', label: 'Contact Us' } },
   ]
 
   return (

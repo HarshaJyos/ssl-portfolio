@@ -71,11 +71,10 @@ export default function Footer() {
         <div>
           <h4 className="font-['DM_Serif_Display'] text-xl uppercase tracking-wider mb-6">Quick Links</h4>
           <ul className="space-y-3 text-white/80 text-sm">
-            <li><a href="#home" className="hover:text-white transition-colors">About Us</a></li>
-            <li><a href="#why-us" className="hover:text-white transition-colors">Why SSL Fintech</a></li>
-            <li><a href="#insights" className="hover:text-white transition-colors">Insights</a></li>
-            <li><a href="#contact" className="hover:text-white transition-colors">Contact Us</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Book Consultation</a></li>
+            <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/offerings" className="hover:text-white transition-colors">Offerings</a></li>
+            <li><a href="/tools" className="hover:text-white transition-colors">Tools</a></li>
+            <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
           </ul>
         </div>
 

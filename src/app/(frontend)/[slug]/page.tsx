@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 
-const EXCLUDED_SLUGS = ['home', 'calculators']
+const EXCLUDED_SLUGS = ['home', 'calculators', 'about', 'offerings', 'client-service', 'tools', 'login', 'contact', 'resources']
 import configPromise from '@payload-config'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
 import { draftMode } from 'next/headers'
