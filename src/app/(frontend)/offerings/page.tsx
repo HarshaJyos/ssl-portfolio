@@ -79,23 +79,6 @@ export default function OfferingsPage() {
           </p>
         </section>
 
-        {/* Product Basket Grid */}
-        <section className="space-y-10">
-          <div className="border-l-4 border-[#00acb7] pl-4">
-            <h2 className="font-['DM_Serif_Display'] text-3xl text-[#014865]">Wealth & Investment Products</h2>
-            <p className="text-gray-500 text-sm">Grow your capital and secure future retirement needs.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((prod, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-[0px_4px_20px_rgba(0,0,0,0.02)] space-y-4 hover:shadow-[0px_10px_30px_rgba(0,0,0,0.06)] hover:border-[#00acb7]/20 transition-all">
-                <h3 className="font-['DM_Serif_Display'] text-2xl text-[#014865]">{prod.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{prod.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Loan Offerings Grid */}
         <section className="space-y-10">
           <div className="border-l-4 border-[#00acb7] pl-4">
@@ -113,6 +96,23 @@ export default function OfferingsPage() {
                 <div className="bg-[#f6f3f3] p-4 rounded-xl text-[#00728a] text-sm font-semibold">
                   Key Benefit: {loan.benefit}
                 </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Product Basket Grid */}
+        <section className="space-y-10">
+          <div className="border-l-4 border-[#00acb7] pl-4">
+            <h2 className="font-['DM_Serif_Display'] text-3xl text-[#014865]">Wealth & Investment Products</h2>
+            <p className="text-gray-500 text-sm">Grow your capital and secure future retirement needs.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((prod, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-[0px_4px_20px_rgba(0,0,0,0.02)] space-y-4 hover:shadow-[0px_10px_30px_rgba(0,0,0,0.06)] hover:border-[#00acb7]/20 transition-all">
+                <h3 className="font-['DM_Serif_Display'] text-2xl text-[#014865]">{prod.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{prod.desc}</p>
               </div>
             ))}
           </div>

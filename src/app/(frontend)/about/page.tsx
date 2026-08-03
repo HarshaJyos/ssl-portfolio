@@ -40,49 +40,58 @@ export default function AboutPage() {
           </p>
         </section>
 
-        {/* Our Story Block */}
-        <section className="bg-white rounded-[40px] p-8 md:p-12 shadow-[0px_10px_30px_rgba(0,0,0,0.04)] border border-gray-100 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="text-sm font-semibold text-[#00acb7] uppercase tracking-wider">
-              OUR STORY
-            </div>
-            <h2 className="font-['DM_Serif_Display'] text-3xl md:text-4xl text-[#014865]">
-              Helping Clients Prosper Since 2018
-            </h2>
-            <p className="text-gray-600 leading-relaxed">
-              Incorporated in 2018, SSL Fintech operates as a proud partner of <strong className="font-bold">NJ Wealth</strong>. Over the years, we have grown to support more than <strong className="font-bold">6,000+ satisfied clients</strong> across India in securing their financial future.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              We are committed to helping our clients fulfill their short-term and long-term financial needs with highly customized, smart investment assessments.
-            </p>
-            <div className="border-t border-gray-100 pt-6 space-y-3">
-              <p className="text-sm text-gray-600 flex items-start gap-2">
-                <span className="text-[#00acb7] font-bold">•</span>
-                <strong>Accreditation:</strong> We are a certified Mutual Fund and Insurance distributor recognized by the National Stock Exchange (NSE) and the Association of Mutual Funds of India (AMFI).
-              </p>
-              <p className="text-sm text-gray-600 flex items-start gap-2">
-                <span className="text-[#00acb7] font-bold">•</span>
-                <strong>Expertise:</strong> Our advisory partners leverage specialized knowledge in mutual fund distribution, general insurance, tax planning laws, and credit facilities.
-              </p>
-              <p className="text-sm text-gray-600 flex items-start gap-2">
-                <span className="text-[#00acb7] font-bold">•</span>
-                <strong>Core Purpose:</strong> To provide fast-track loan approvals, optimize investment portfolios, and guide our clients toward a worry-free retirement life.
-              </p>
+        {/* Our Story Block (Combined Top and Bottom) */}
+        <section className="shadow-[0px_10px_30px_rgba(0,0,0,0.04)] border border-gray-100 rounded-[40px] overflow-hidden bg-white">
+          {/* Top Story Panel (White) */}
+          <div className="p-8 md:p-12 space-y-8">
+            <div className="space-y-6">
+              <div className="text-sm font-semibold text-[#00acb7] uppercase tracking-wider">
+                OUR STORY
+              </div>
+              <h2 className="font-['DM_Serif_Display'] text-3xl md:text-4xl text-[#014865]">
+                Helping Clients Prosper Since 2018
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="space-y-4">
+                  <p className="text-gray-600 leading-relaxed">
+                    Incorporated in 2018, SSL Fintech operates as a proud partner of <strong className="font-bold">NJ Wealth</strong>. Over the years, we have grown to support more than <strong className="font-bold">6,000+ satisfied clients</strong> across India in securing their financial future.
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    We are committed to helping our clients fulfill their short-term and long-term financial needs with highly customized, smart investment assessments.
+                  </p>
+                </div>
+                <div className="space-y-4 bg-[#f6f3f3]/50 p-6 rounded-2xl border border-gray-100">
+                  <p className="text-sm text-gray-600 flex items-start gap-2">
+                    <span className="text-[#00acb7] font-bold shrink-0">•</span>
+                    <span><strong>Accreditation:</strong> We are a certified Mutual Fund and Insurance distributor recognized by the NSE (National Stock Exchange) and AMFI (Association of Mutual Funds of India).</span>
+                  </p>
+                  <p className="text-sm text-gray-600 flex items-start gap-2">
+                    <span className="text-[#00acb7] font-bold shrink-0">•</span>
+                    <span><strong>Expertise:</strong> Our advisory partners leverage specialized knowledge in mutual fund distribution, general insurance, tax planning laws, and credit facilities.</span>
+                  </p>
+                  <p className="text-sm text-gray-600 flex items-start gap-2">
+                    <span className="text-[#00acb7] font-bold shrink-0">•</span>
+                    <span><strong>Core Purpose:</strong> To provide fast-track loan approvals, optimize investment portfolios, and guide our clients toward a worry-free retirement life.</span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           
-          {/* Creative Stats Grid */}
-          <div className="grid grid-cols-1 gap-8 bg-gradient-to-br from-[#00acb7] to-[#00728a] p-8 md:p-12 rounded-[30px] text-white">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="space-y-2 border-b border-white/10 pb-6 last:border-0 last:pb-0">
-                <div className="font-['Manrope'] font-extrabold text-4xl md:text-5xl">
-                  {stat.value}
+          {/* Bottom Stats Banner (Teal) */}
+          <div className="bg-gradient-to-r from-[#00acb7] to-[#00728a] p-8 md:p-12 text-white">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
+              {stats.map((stat, idx) => (
+                <div key={idx} className="pt-6 md:pt-0 md:px-6 first:pt-0 first:pl-0">
+                  <div className="font-['Manrope'] font-extrabold text-4xl md:text-5xl mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs md:text-sm text-white/80 font-bold uppercase tracking-wider">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-sm text-white/80 font-medium uppercase tracking-wider">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
