@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Header from "@/components/home/Header";
 import Hero from "@/components/home/Hero";
 import Stats from "@/components/home/Stats";
 import AboutUs from "@/components/home/AboutUs";
@@ -11,7 +10,6 @@ import Offerings from "@/components/home/Offerings";
 import Testimonials from "@/components/home/Testimonials";
 import Insights from "@/components/home/Insights";
 import CtaBanner from "@/components/home/CtaBanner";
-import Footer from "@/components/home/Footer";
 import ApplyModal from "@/components/home/ApplyModal";
 import type { Post } from "@/payload-types";
 
@@ -24,9 +22,8 @@ export default function HomeClient({ initialPosts }: HomeClientProps) {
 
   return (
     <div className="relative w-full overflow-x-hidden bg-[#f6f3f3] font-sans">
-      {/* HEADER AND HERO WRAPPER WITH FIGMA GRADIENT BACKGROUND */}
+      {/* HERO WRAPPER WITH FIGMA GRADIENT BACKGROUND */}
       <div className="w-full bg-gradient-to-b from-[#00c6c9] via-[#00c6c9]/45 to-white relative">
-        <Header />
         <Hero onApply={() => setApplyModalOpen(true)} />
       </div>
 
@@ -38,7 +35,6 @@ export default function HomeClient({ initialPosts }: HomeClientProps) {
       <Testimonials />
       <Insights posts={initialPosts} />
       <CtaBanner onApply={() => setApplyModalOpen(true)} />
-      <Footer />
 
       <ApplyModal isOpen={applyModalOpen} onClose={() => setApplyModalOpen(false)} />
     </div>
