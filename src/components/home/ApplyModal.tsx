@@ -37,10 +37,17 @@ export default function ApplyModal({ isOpen, onClose }: ApplyModalProps) {
       // 1. Submit to Payload CMS Forms Endpoint
       const submissionData = [
         { field: "Full Name", value: formData.name },
+        { field: "fullname", value: formData.name },
+        { field: "full-name", value: formData.name },
         { field: "Email", value: formData.email },
+        { field: "email", value: formData.email },
         { field: "Phone Number", value: Number(formData.phone) },
+        { field: "phone", value: Number(formData.phone) },
+        { field: "phone-number", value: Number(formData.phone) },
         { field: "Loan Type", value: formData.loanType },
-        { field: "Required Amount", value: Number(formData.amount) }
+        { field: "loan-type", value: formData.loanType },
+        { field: "Required Amount", value: Number(formData.amount) },
+        { field: "required-amount", value: Number(formData.amount) }
       ];
 
       const cmsResponse = await fetch('/api/form-submissions', {
