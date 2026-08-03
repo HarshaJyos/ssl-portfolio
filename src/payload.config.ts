@@ -1,4 +1,5 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import dns from 'node:dns'
 
 // Force Google DNS resolvers to handle Atlas SRV lookups (resolves querySrv ECONNREFUSED)
@@ -65,6 +66,21 @@ export default buildConfig({
       ],
     },
   },
+  // Configure Nodemailer Email Adapter for SMTP delivery if credentials are provided
+  email: process.env.SMTP_USER && process.env.SMTP_USER !== 'postmaster@yourdomain.com'
+    ? nodemailerAdapter({
+        defaultFromAddress: process.env.SMTP_FROM_ADDRESS || 'info@sslfintech.org',
+        defaultFromName: process.env.SMTP_FROM_NAME || 'SSL Fintech',
+        transportOptions: {
+          host: process.env.SMTP_HOST || 'smtp.mailgun.org',
+          port: Number(process.env.SMTP_PORT) || 587,
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
+          },
+        },
+      })
+    : undefined,
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   db: mongooseAdapter({
