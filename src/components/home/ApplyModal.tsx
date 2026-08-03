@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { db } from "@/utilities/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 interface ApplyModalProps {
   isOpen: boolean;
@@ -16,15 +18,73 @@ export default function ApplyModal({ isOpen, onClose }: ApplyModalProps) {
     amount: ""
   });
 
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Thank you ${formData.name}! Your loan application for ${formData.loanType} of ₹${formData.amount} has been submitted successfully.`);
-    onClose();
-    setFormData({ name: "", email: "", phone: "", loanType: "Personal Loan", amount: "" });
+    if (!formData.name || !formData.email || !formData.phone || !formData.amount) {
+      setStatus('error');
+      return;
+    }
+
+    setStatus('submitting');
+
+    try {
+      // 1. Submit to Payload CMS Forms Endpoint
+      const submissionData = [
+        { field: "Full Name", value: formData.name },
+        { field: "Email", value: formData.email },
+        { field: "Phone Number", value: Number(formData.phone) },
+        { field: "Loan Type", value: formData.loanType },
+        { field: "Required Amount", value: Number(formData.amount) }
+      ];
+
+      const cmsResponse = await fetch('/api/form-submissions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form: "6a702a51b92a0e9ad6d87deb",
+          submissionData,
+        }),
+      });
+
+      if (!cmsResponse.ok) {
+        throw new Error("Payload CMS form submission failed");
+      }
+
+      // 2. Submit to Firebase Firestore (Wrapped inside a safe try-catch in case of Firebase permission issues)
+      try {
+        await addDoc(collection(db, 'inquiries'), {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          loanType: formData.loanType,
+          amount: Number(formData.amount),
+          submittedAt: serverTimestamp(),
+        });
+      } catch (firestoreError) {
+        console.warn("Firestore backup write failed due to security/permission rules:", firestoreError);
+      }
+
+      setStatus('success');
+      setFormData({ name: "", email: "", phone: "", loanType: "Personal Loan", amount: "" });
+      
+      // Auto-close modal after 2 seconds
+      setTimeout(() => {
+        onClose();
+        setStatus('idle');
+      }, 2000);
+
+    } catch (error) {
+      console.error("Form submission failed:", error);
+      setStatus('error');
+    }
   };
 
   if (!isOpen) return null;
@@ -100,12 +160,12 @@ export default function ApplyModal({ isOpen, onClose }: ApplyModalProps) {
                 name="loanType"
                 value={formData.loanType}
                 onChange={handleFormChange}
-                className="w-full bg-gray-50 border border-gray-200 px-3 py-3 rounded-2xl text-sm focus:outline-none focus:border-[#00acb7] transition-all"
+                className="w-full bg-gray-50 border border-gray-200 px-3 py-3 rounded-2xl text-sm focus:outline-none focus:border-[#00acb7] transition-all bg-white"
               >
                 <option value="Personal Loan">Personal Loan</option>
                 <option value="Home Loan">Home Loan</option>
                 <option value="Business Loan">Business Loan</option>
-                <option value="Investment Setup">Investment</option>
+                <option value="Investmets">Investment</option>
               </select>
             </div>
             <div>
@@ -122,11 +182,24 @@ export default function ApplyModal({ isOpen, onClose }: ApplyModalProps) {
             </div>
           </div>
 
+          {/* Submission Alerts */}
+          {status === 'success' && (
+            <div className="p-3 bg-green-50 border border-green-200 text-green-700 rounded-xl text-xs font-semibold">
+              ✔ Application submitted successfully!
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="p-3 bg-red-50 border border-red-200 text-red-600 rounded-xl text-xs font-semibold">
+              ⨯ Error saving application. Please try again.
+            </div>
+          )}
+
           <button
             type="submit"
-            className="w-full bg-[#00728a] hover:bg-[#014865] text-white py-4 rounded-2xl font-bold tracking-wide mt-2 transition-all duration-300 shadow-md active:scale-[0.98]"
+            disabled={status === 'submitting'}
+            className="w-full bg-[#00728a] hover:bg-[#014865] text-white py-4 rounded-2xl font-bold tracking-wide mt-2 transition-all duration-300 shadow-md active:scale-[0.98] disabled:opacity-50"
           >
-            Submit Application
+            {status === 'submitting' ? 'Submitting Application...' : 'Submit Application'}
           </button>
         </form>
       </div>

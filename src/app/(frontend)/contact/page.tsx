@@ -10,36 +10,69 @@ export default function ContactPage() {
     name: '',
     email: '',
     phone: '',
-    loanType: 'personal',
-    message: '',
+    loanType: 'Personal Loan',
+    amount: '',
   })
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.name || !formData.email || !formData.phone) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.amount) {
       setStatus('error')
       return
     }
 
     setStatus('submitting')
     try {
-      // Save data directly to Firestore 'inquiries' collection
-      await addDoc(collection(db, 'inquiries'), {
-        ...formData,
-        submittedAt: serverTimestamp(),
+      // 1. Submit to Payload CMS Forms Endpoint
+      const submissionData = [
+        { field: "Full Name", value: formData.name },
+        { field: "Email", value: formData.email },
+        { field: "Phone Number", value: Number(formData.phone) },
+        { field: "Loan Type", value: formData.loanType },
+        { field: "Required Amount", value: Number(formData.amount) }
+      ]
+
+      const cmsResponse = await fetch('/api/form-submissions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form: "6a702a51b92a0e9ad6d87deb",
+          submissionData,
+        }),
       })
+
+      if (!cmsResponse.ok) {
+        throw new Error("Payload CMS form submission failed");
+      }
+
+      // 2. Submit to Firebase Firestore Backup (Wrapped inside a safe try-catch in case of Firebase permission issues)
+      try {
+        await addDoc(collection(db, 'inquiries'), {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          loanType: formData.loanType,
+          amount: Number(formData.amount),
+          submittedAt: serverTimestamp(),
+        })
+      } catch (firestoreError) {
+        console.warn("Firestore backup write failed due to security/permission rules:", firestoreError);
+      }
+
       setStatus('success')
       setFormData({
         name: '',
         email: '',
         phone: '',
-        loanType: 'personal',
-        message: '',
+        loanType: 'Personal Loan',
+        amount: '',
       })
     } catch (error) {
-      console.error('Firestore save failed:', error)
+      console.error('Submission failed:', error)
       setStatus('error')
     }
   }
@@ -156,38 +189,38 @@ export default function ContactPage() {
               </div>
 
               {/* Subject / Loan Type */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase">Required Service</label>
-                <select
-                  value={formData.loanType}
-                  onChange={(e) => setFormData({ ...formData, loanType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#00acb7] text-sm bg-white"
-                >
-                  <option value="personal">Personal Loan</option>
-                  <option value="business">Business Loan</option>
-                  <option value="home">Home Loan</option>
-                  <option value="mutual-funds">Mutual Fund / SIP Investments</option>
-                  <option value="insurance">Insurance Planning</option>
-                  <option value="other">Other Inquiries</option>
-                </select>
-              </div>
-
-              {/* Message */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase">How can we help?</label>
-                <textarea
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Detail your requirements..."
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#00acb7] text-sm"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-500 uppercase">Required Service</label>
+                  <select
+                    value={formData.loanType}
+                    onChange={(e) => setFormData({ ...formData, loanType: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#00acb7] text-sm bg-white"
+                  >
+                    <option value="Personal Loan">Personal Loan</option>
+                    <option value="Business Loan">Business Loan</option>
+                    <option value="Home Loan">Home Loan</option>
+                    <option value="Investmets">Investment</option>
+                  </select>
+                </div>
+                {/* Required Amount */}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-500 uppercase">Required Amount</label>
+                  <input
+                    type="number"
+                    required
+                    value={formData.amount}
+                    onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
+                    placeholder="₹ 5,00,000"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#00acb7] text-sm"
+                  />
+                </div>
               </div>
 
               {/* Submit states */}
               {status === 'success' && (
                 <div className="p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl text-sm font-medium">
-                  ✔ Inquiry sent successfully! Our advisors will contact you shortly.
+                  ✔ Thank You for choosing sslfintech.
                 </div>
               )}
               {status === 'error' && (
