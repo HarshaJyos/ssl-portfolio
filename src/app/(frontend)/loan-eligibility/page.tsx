@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { Coins, BarChart2, CreditCard } from 'lucide-react'
 
 export const metadata = {
   title: 'Loan Eligibility Criteria | SSL Fintech',
@@ -36,20 +37,20 @@ export default function LoanEligibilityPage() {
 
           {/* Criteria Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-              <span className="text-2xl">💰</span>
+            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-start">
+              <span className="text-2xl text-[#00acb7] mb-2"><Coins className="w-8 h-8" /></span>
               <h3 className="font-bold text-sm text-[#014865] mt-2 mb-1">Minimum Income</h3>
               <p className="text-xs text-gray-500 leading-relaxed">Minimum monthly salary of ₹25,000 is required for salaried applicants.</p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-              <span className="text-2xl">📊</span>
+            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-start">
+              <span className="text-2xl text-[#00acb7] mb-2"><BarChart2 className="w-8 h-8" /></span>
               <h3 className="font-bold text-sm text-[#014865] mt-2 mb-1">FOIR Limit</h3>
               <p className="text-xs text-gray-500 leading-relaxed">Fixed Obligation to Income Ratio (FOIR) up to 75% depending on lender checks.</p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-              <span className="text-2xl">💳</span>
+            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-start">
+              <span className="text-2xl text-[#00acb7] mb-2"><CreditCard className="w-8 h-8" /></span>
               <h3 className="font-bold text-sm text-[#014865] mt-2 mb-1">Lending Ranges</h3>
               <p className="text-xs text-gray-500 leading-relaxed">Unsecured personal/business loans starting from ₹1 Lakh up to ₹1 Crore.</p>
             </div>

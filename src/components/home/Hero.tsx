@@ -23,7 +23,7 @@ export default function Hero({ onApply }: HeroProps) {
 
           {/* Description */}
           <p className="text-base md:text-xl text-[#014865]/90 font-semibold leading-relaxed mb-8 max-w-2xl">
-            Helping individuals, families and businesses secure the right financing with expert guidance on Personal Loans, Home Loans, Business Loans, Vehicle Loans and smart investment solutions.
+            Helping individuals, families, and businesses in Bengaluru secure the right financing with expert DSA aggregator guidance on Personal Loans, Home Loans, and Business Loans.
           </p>
 
           {/* CTA Buttons */}

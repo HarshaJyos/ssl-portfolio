@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { db } from '@/utilities/firebase'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { MapPin, Phone, Mail } from 'lucide-react'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -110,7 +111,9 @@ export default function ContactPage() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <span className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white shrink-0">📍</span>
+                <span className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-[#00acb7] shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </span>
                 <div>
                   <h4 className="font-semibold text-sm uppercase text-[#00acb7]">Registered Office</h4>
                   <p className="text-sm text-white/80 leading-relaxed pt-1">
@@ -122,7 +125,9 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white shrink-0">📞</span>
+                <span className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-[#00acb7] shrink-0">
+                  <Phone className="w-5 h-5" />
+                </span>
                 <div>
                   <h4 className="font-semibold text-sm uppercase text-[#00acb7]">Call Us</h4>
                   <p className="text-sm text-white/80 pt-1">+91 90256 65100</p>
@@ -130,7 +135,9 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white shrink-0">✉</span>
+                <span className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-[#00acb7] shrink-0">
+                  <Mail className="w-5 h-5" />
+                </span>
                 <div>
                   <h4 className="font-semibold text-sm uppercase text-[#00acb7]">Email Us</h4>
                   <p className="text-sm text-white/80 pt-1">support@sslfintech.org</p>

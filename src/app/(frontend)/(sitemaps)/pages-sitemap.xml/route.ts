@@ -33,6 +33,54 @@ const getPagesSitemap = unstable_cache(
 
     const defaultSitemap = [
       {
+        loc: `${SITE_URL}/`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/about`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/contact`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/offerings`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/tools`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/how-it-works`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/loan-eligibility`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/privacy-policy`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/terms-and-conditions`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/loan-disclaimer`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/cookie-policy`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/grievance-complaints`,
+        lastmod: dateFallback,
+      },
+      {
         loc: `${SITE_URL}/search`,
         lastmod: dateFallback,
       },

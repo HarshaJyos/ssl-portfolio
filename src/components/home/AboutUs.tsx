@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Target, Eye, User, Play } from "lucide-react";
 
 export default function AboutUs() {
@@ -102,7 +103,15 @@ export default function AboutUs() {
 
             {/* Founder Description */}
             <div className="flex items-center gap-4 relative z-10 px-2">
-              <div className="w-16 h-16 rounded-xl bg-gray-200 flex-shrink-0"></div>
+              <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 relative">
+                <Image
+                  src="/assets/founder.png"
+                  alt="Raja Mylaravarapu"
+                  fill
+                  sizes="64px"
+                  className="object-cover"
+                />
+              </div>
               <div>
                 <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest block">MEET OUR FOUNDER</span>
                 <h3 className="font-['DM_Serif_Display'] text-2xl text-[#014865] leading-tight">

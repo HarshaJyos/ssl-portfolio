@@ -142,8 +142,15 @@ export default function AboutPage() {
             <h2 className="font-['DM_Serif_Display'] text-3xl md:text-4xl text-[#014865]">Meet Our Founder</h2>
           </div>
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 max-w-4xl mx-auto">
-            <div className="w-32 h-32 md:w-40 md:h-40 bg-[#00acb7] rounded-3xl flex items-center justify-center text-white text-5xl font-bold shadow-lg shrink-0">
-              RM
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-lg shrink-0 relative">
+              <Image
+                src="/assets/founder.png"
+                alt="Raja Mylaravarapu"
+                fill
+                sizes="(max-width: 768px) 128px, 160px"
+                className="object-cover"
+                priority
+              />
             </div>
             <div className="space-y-4 text-center md:text-left">
               <h3 className="font-['DM_Serif_Display'] text-2xl text-[#014865]">Raja Mylaravarapu</h3>
