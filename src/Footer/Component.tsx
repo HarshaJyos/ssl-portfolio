@@ -89,10 +89,12 @@ export async function Footer() {
               })
             ) : (
               <>
-                <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="/offerings" className="hover:text-white transition-colors">Offerings</a></li>
-                <li><a href="/tools" className="hover:text-white transition-colors">Tools</a></li>
-                <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/offerings" className="hover:text-white transition-colors">Offerings</Link></li>
+                <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+                <li><Link href="/loan-eligibility" className="hover:text-white transition-colors">Loan Eligibility</Link></li>
+                <li><Link href="/tools" className="hover:text-white transition-colors">Tools</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               </>
             )}
           </ul>
@@ -112,12 +114,13 @@ export async function Footer() {
 
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
-        <p>Built with Trust. Driven by Values.</p>
-        <div className="flex gap-6">
-          <a href="#" className="hover:underline">AMFI Registration</a>
-          <a href="#" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">Terms & Conditions</a>
-          <a href="#" className="hover:underline">Disclaimer</a>
+        <p>© 2026 SSL Fintech. Built with Trust. Driven by Values.</p>
+        <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-end">
+          <Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link>
+          <Link href="/terms-and-conditions" className="hover:underline">Terms & Conditions</Link>
+          <Link href="/loan-disclaimer" className="hover:underline">Disclaimer</Link>
+          <Link href="/cookie-policy" className="hover:underline">Cookie Policy</Link>
+          <Link href="/grievance-complaints" className="hover:underline">Grievances</Link>
         </div>
       </div>
     </footer>
