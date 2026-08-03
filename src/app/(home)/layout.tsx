@@ -1,6 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
+
+import { cn } from '@/utilities/ui'
 import { Manrope, DM_Serif_Display, Inter, Plus_Jakarta_Sans } from "next/font/google";
-import "./globals.css";
+import React from 'react'
+
+import { AdminBar } from '@/components/AdminBar'
+import { Footer } from '@/Footer/Component'
+import { Header } from '@/Header/Component'
+import { Providers } from '@/providers'
+import { InitTheme } from '@/providers/Theme/InitTheme'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { draftMode } from 'next/headers'
+import { Analytics } from '@vercel/analytics/next'
+
+import './globals.css'
+import { getServerSideURL } from '@/utilities/getURL'
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -26,22 +40,41 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const { isEnabled } = await draftMode()
+
+  return (
+    <html className={`${manrope.variable} ${dmSerifDisplay.variable} ${inter.variable} ${plusJakartaSans.variable} h-full antialiased`} lang="en" suppressHydrationWarning>
+      <head>
+        <InitTheme />
+        <link href="/favicon.ico" rel="icon" sizes="32x32" />
+        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+      </head>
+      <body className="min-h-full flex flex-col bg-[#f6f3f3] text-black">
+        <Providers>
+          <AdminBar
+            adminBarProps={{
+              preview: isEnabled,
+            }}
+          />
+
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
+        <Analytics />
+      </body>
+    </html>
+  )
+}
+
 export const metadata: Metadata = {
+  metadataBase: new URL(getServerSideURL()),
   title: "SSL Fintech | Personal Loans Made Simple",
   description: "Helping individuals, families, and businesses secure the right financing with expert guidance on Personal Loans, Home Loans, Business Loans, and smart investment solutions.",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html
-      lang="en"
-      className={`${manrope.variable} ${dmSerifDisplay.variable} ${inter.variable} ${plusJakartaSans.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-[#f6f3f3] text-black">{children}</body>
-    </html>
-  );
+  openGraph: mergeOpenGraph(),
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@payloadcms',
+  },
 }
