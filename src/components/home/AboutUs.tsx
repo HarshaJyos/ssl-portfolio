@@ -85,7 +85,7 @@ export default function AboutUs() {
               {isVideoPlaying ? (
                 <video
                   className="w-full h-full object-contain"
-                  src="https://pub-2f0315f512294496ab0e8d3f17562fa5.r2.dev/sslfintech_HomeAbout_UsOfferin.mp4"
+                  src="/assets/sslfintech_HomeAbout_UsOfferin.mp4"
                   controls
                   autoPlay
                   playsInline
