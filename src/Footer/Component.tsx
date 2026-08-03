@@ -65,12 +65,12 @@ export async function Footer() {
         <div>
           <h4 className="font-['DM_Serif_Display'] text-xl uppercase tracking-wider mb-6">Our Services</h4>
           <ul className="space-y-3 text-white/80 text-sm">
-            <li><a href="#" className="hover:text-white transition-colors">Personal Loans</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Investments</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Insurance</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Wealth Management</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Retirement Planning</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Client Services</a></li>
+            <li><Link href="/offerings#loans" className="hover:text-white transition-colors">Personal Loans</Link></li>
+            <li><Link href="/offerings#wealth-investments" className="hover:text-white transition-colors">Investments</Link></li>
+            <li><Link href="/offerings#wealth-investments" className="hover:text-white transition-colors">Insurance</Link></li>
+            <li><Link href="/offerings#wealth-investments" className="hover:text-white transition-colors">Wealth Management</Link></li>
+            <li><Link href="/offerings#wealth-investments" className="hover:text-white transition-colors">Retirement Planning</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors">Client Services</Link></li>
           </ul>
         </div>
 

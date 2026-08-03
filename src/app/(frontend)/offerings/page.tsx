@@ -80,7 +80,7 @@ export default function OfferingsPage() {
         </section>
 
         {/* Loan Offerings Grid */}
-        <section className="space-y-10">
+        <section id="loans" className="space-y-10">
           <div className="border-l-4 border-[#00acb7] pl-4">
             <h2 className="font-['DM_Serif_Display'] text-3xl text-[#014865]">Loan & Credit Services</h2>
             <p className="text-gray-500 text-sm">Flexible funding options with competitive interest rates.</p>
@@ -102,7 +102,7 @@ export default function OfferingsPage() {
         </section>
 
         {/* Product Basket Grid */}
-        <section className="space-y-10">
+        <section id="wealth-investments" className="space-y-10">
           <div className="border-l-4 border-[#00acb7] pl-4">
             <h2 className="font-['DM_Serif_Display'] text-3xl text-[#014865]">Wealth & Investment Products</h2>
             <p className="text-gray-500 text-sm">Grow your capital and secure future retirement needs.</p>
