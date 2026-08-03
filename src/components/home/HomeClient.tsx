@@ -22,8 +22,8 @@ export default function HomeClient({ initialPosts }: HomeClientProps) {
 
   return (
     <div className="relative w-full overflow-x-hidden bg-[#f6f3f3] font-sans">
-      {/* HERO WRAPPER WITH FIGMA GRADIENT BACKGROUND */}
-      <div className="w-full bg-gradient-to-b from-[#00c6c9] via-[#00c6c9]/45 to-white relative">
+      {/* HERO WRAPPER WITH FIGMA GRADIENT BACKGROUND AND TOP PADDING FOR ABSOLUTE HEADER */}
+      <div className="w-full bg-gradient-to-b from-[#00c6c9] via-[#00c6c9]/45 to-white relative pt-24 md:pt-32">
         <Hero onApply={() => setApplyModalOpen(true)} />
       </div>
 

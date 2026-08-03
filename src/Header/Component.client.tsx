@@ -39,8 +39,13 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     { link: { type: 'custom', url: '/contact', label: 'Contact Us' } },
   ]
 
+  const isHome = pathname === '/'
+
   return (
-    <header className="relative z-50 pt-8 px-4 md:px-12 max-w-7xl mx-auto w-full" {...(theme ? { 'data-theme': theme } : {})}>
+    <header 
+      className={`${isHome ? 'absolute top-0 left-0 right-0' : 'relative'} z-50 pt-8 px-4 md:px-12 max-w-7xl mx-auto w-full`} 
+      {...(theme ? { 'data-theme': theme } : {})}
+    >
       <div className="bg-white rounded-full px-6 py-4 flex items-center justify-between shadow-[0px_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 max-w-5xl mx-auto w-full">
         {/* Logo and Name */}
         <Link href="/" className="flex items-center gap-3">
