@@ -63,6 +63,7 @@ export default function Offerings({ onApply }: OfferingsProps) {
                 <Image 
                   src={offering.image} 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-110" 
                   alt={offering.title} 
                 />

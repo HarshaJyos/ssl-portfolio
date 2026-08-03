@@ -95,7 +95,8 @@ export default function Hero({ onApply }: HeroProps) {
               src="/assets/imgSsl2.png"
               width={420}
               height={525}
-              className="w-full h-auto object-contain object-bottom"
+              style={{ height: "auto" }}
+              className="w-full object-contain object-bottom"
               alt="Personal Loans Made Simple"
               priority
             />

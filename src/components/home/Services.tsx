@@ -81,6 +81,7 @@ export default function Services({ onApply }: ServicesProps) {
                 <Image 
                   src={service.image} 
                   fill 
+                  sizes="150px"
                   className="object-cover" 
                   alt={service.title} 
                 />
