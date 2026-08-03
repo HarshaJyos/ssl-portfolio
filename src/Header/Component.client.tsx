@@ -10,9 +10,10 @@ import { CMSLink } from '@/components/Link'
 
 interface HeaderClientProps {
   data: Header
+  isHome?: boolean
 }
 
-export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
+export const HeaderClient: React.FC<HeaderClientProps> = ({ data, isHome = false }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
@@ -39,7 +40,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     { link: { type: 'custom', url: '/contact', label: 'Contact Us' } },
   ]
 
-  const isHome = pathname === '/'
+
 
   return (
     <header 
