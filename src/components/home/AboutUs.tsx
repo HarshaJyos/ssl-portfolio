@@ -89,6 +89,7 @@ export default function AboutUs() {
                   controls
                   autoPlay
                   playsInline
+                  preload="metadata"
                 />
               ) : (
                 <button
