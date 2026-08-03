@@ -45,7 +45,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data, isHome = false
   return (
     <header 
       className={`${isHome ? 'absolute top-0 left-0 right-0' : 'relative'} z-50 pt-8 px-4 md:px-12 max-w-7xl mx-auto w-full`} 
-      {...(theme ? { 'data-theme': theme } : {})}
+      data-theme="light"
     >
       <div className="bg-white rounded-full px-6 py-4 flex items-center justify-between shadow-[0px_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 max-w-5xl mx-auto w-full">
         {/* Logo and Name */}
