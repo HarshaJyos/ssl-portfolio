@@ -9,10 +9,9 @@ export const metadata = {
 
 export default function AboutPage() {
   const stats = [
-    { label: 'Satisfied Clients', value: '3,500+' },
-    { label: 'Lacs AUM', value: '500+' },
-    { label: 'Years of Experience', value: '15+' },
-    { label: 'Industry Awards', value: '10+' },
+    { label: 'Happy Clients', value: '6,000+' },
+    { label: 'Years of Experience', value: '20+' },
+    { label: 'Awards Won', value: '10+' },
   ]
 
   const values = [
@@ -51,7 +50,7 @@ export default function AboutPage() {
               Helping Clients Prosper Since 2018
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Incorporated in 2018, SSL Fintech operates as a proud partner of **NJ Wealth**. Over the years, we have grown to support more than **3,500+ satisfied clients** across India in securing their financial future.
+              Incorporated in 2018, SSL Fintech operates as a proud partner of <strong className="font-bold">NJ Wealth</strong>. Over the years, we have grown to support more than <strong className="font-bold">6,000+ satisfied clients</strong> across India in securing their financial future.
             </p>
             <p className="text-gray-600 leading-relaxed">
               We are committed to helping our clients fulfill their short-term and long-term financial needs with highly customized, smart investment assessments.
@@ -73,13 +72,13 @@ export default function AboutPage() {
           </div>
           
           {/* Creative Stats Grid */}
-          <div className="grid grid-cols-2 gap-6 bg-gradient-to-br from-[#00acb7] to-[#00728a] p-8 rounded-[30px] text-white">
+          <div className="grid grid-cols-1 gap-8 bg-gradient-to-br from-[#00acb7] to-[#00728a] p-8 md:p-12 rounded-[30px] text-white">
             {stats.map((stat, idx) => (
-              <div key={idx} className="space-y-2 border-b border-white/10 pb-4 last:border-0 md:even:border-b-0 md:odd:border-b-0">
-                <div className="font-['Manrope'] font-extrabold text-3xl md:text-4xl">
+              <div key={idx} className="space-y-2 border-b border-white/10 pb-6 last:border-0 last:pb-0">
+                <div className="font-['Manrope'] font-extrabold text-4xl md:text-5xl">
                   {stat.value}
                 </div>
-                <div className="text-sm text-white/80 font-medium">
+                <div className="text-sm text-white/80 font-medium uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>
@@ -141,7 +140,7 @@ export default function AboutPage() {
               <h3 className="font-['DM_Serif_Display'] text-2xl text-[#014865]">Raja Mylaravarapu</h3>
               <p className="text-[#00acb7] font-semibold text-sm">ARN-302874 (AMFI-Registered Mutual Fund Distributor)</p>
               <p className="text-gray-600 leading-relaxed text-sm">
-                With **over 20+ years of active experience** in financial markets, Raja has guided thousands of families through loan acquisitions, retirement allocations, and tax-efficient investments. He leads SSL Fintech on the principles of values-driven client care and unbiased counseling.
+                With <strong className="font-bold">over 20+ years of active experience</strong> in financial markets, Raja has guided thousands of families through loan acquisitions, retirement allocations, and tax-efficient investments. He leads SSL Fintech on the principles of values-driven client care and unbiased counseling.
               </p>
               <p className="text-gray-500 italic text-xs">
                 Initial Registration: 01/08/2024 • Validity until: 24/07/2027

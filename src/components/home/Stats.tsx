@@ -1,4 +1,4 @@
-import { Users, BadgeCheck, Handshake } from "lucide-react";
+import { Users, BadgeCheck, Award } from "lucide-react";
 
 export default function Stats() {
   return (
@@ -10,7 +10,7 @@ export default function Stats() {
           <div className="flex items-center gap-4">
             <Users className="w-10 h-10 text-[#00acb7]" />
             <div>
-              <h3 className="text-3xl md:text-4xl font-extrabold text-white">500+</h3>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-white">6000+</h3>
               <p className="text-white/70 text-sm font-semibold uppercase tracking-wider">Happy Clients</p>
             </div>
           </div>
@@ -19,17 +19,17 @@ export default function Stats() {
           <div className="flex items-center gap-4">
             <BadgeCheck className="w-10 h-10 text-[#00acb7]" />
             <div>
-              <h3 className="text-3xl md:text-4xl font-extrabold text-white">15+</h3>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-white">20+</h3>
               <p className="text-white/70 text-sm font-semibold uppercase tracking-wider">Years of Experience</p>
             </div>
           </div>
 
           {/* Stat 3 */}
           <div className="flex items-center gap-4">
-            <Handshake className="w-10 h-10 text-[#00acb7]" />
+            <Award className="w-10 h-10 text-[#00acb7]" />
             <div>
-              <h3 className="text-3xl md:text-4xl font-extrabold text-white">20+</h3>
-              <p className="text-white/70 text-sm font-semibold uppercase tracking-wider">Banking Partners</p>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-white">10+</h3>
+              <p className="text-white/70 text-sm font-semibold uppercase tracking-wider">Awards Won</p>
             </div>
           </div>
 
