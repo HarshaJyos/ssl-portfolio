@@ -81,19 +81,19 @@ export default function AboutUs() {
             <div className="absolute inset-4 border border-black/10 border-dashed rounded-2xl pointer-events-none"></div>
 
             {/* Video container */}
-            <div className="relative aspect-video w-full rounded-2xl border-2 border-dashed border-gray-300 flex items-center justify-center bg-white cursor-pointer group mb-6 overflow-hidden z-10">
+            <div className="relative aspect-video w-full rounded-2xl border border-gray-200 flex items-center justify-center bg-black cursor-pointer group mb-6 overflow-hidden z-10">
               {isVideoPlaying ? (
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                  title="Founder Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                <video
+                  className="w-full h-full object-contain"
+                  src="https://pub-2f0315f512294496ab0e8d3f17562fa5.r2.dev/sslfintech_HomeAbout_UsOfferin.mp4"
+                  controls
+                  autoPlay
+                  playsInline
+                />
               ) : (
                 <button
                   onClick={() => setIsVideoPlaying(true)}
-                  className="w-16 h-16 bg-[#00acb7] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+                  className="w-16 h-16 bg-[#00acb7] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-20"
                   aria-label="Play video"
                 >
                   <Play className="w-8 h-8 fill-current ml-1 text-white" />
