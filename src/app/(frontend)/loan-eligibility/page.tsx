@@ -5,6 +5,9 @@ import { Coins, BarChart2, CreditCard } from 'lucide-react'
 export const metadata = {
   title: 'Loan Eligibility Criteria | SSL Fintech',
   description: 'Understand the parameters and criteria required by banks and NBFC partners to qualify for personal and business loans.',
+  alternates: {
+    canonical: '/loan-eligibility',
+  },
 }
 
 export default function LoanEligibilityPage() {

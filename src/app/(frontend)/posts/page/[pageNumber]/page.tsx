@@ -76,7 +76,11 @@ export default async function Page({ params: paramsPromise }: Args) {
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { pageNumber } = await paramsPromise
   return {
-    title: `Payload Website Template Posts Page ${pageNumber || ''}`,
+    title: `Fintech Blog - Page ${pageNumber || ''} | SSL Fintech`,
+    description: 'Expert financial advice, credit insights, and wealth management tips in Bengaluru from SSL Fintech.',
+    alternates: {
+      canonical: `/posts/page/${pageNumber}`,
+    },
   }
 }
 

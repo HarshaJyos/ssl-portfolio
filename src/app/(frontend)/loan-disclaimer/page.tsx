@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata = {
   title: 'Loan Disclaimer | SSL Fintech',
   description: 'Compliance disclosure clarifying that SSL Solutions is a referral aggregator / DSA facilitator, not a direct lender.',
+  alternates: {
+    canonical: '/loan-disclaimer',
+  },
 }
 
 export default function LoanDisclaimerPage() {

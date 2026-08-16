@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata = {
   title: 'Cookie Policy | SSL Fintech',
   description: 'Understand how cookies and session storage are utilized on the SSL Solutions portal.',
+  alternates: {
+    canonical: '/cookie-policy',
+  },
 }
 
 export default function CookiePolicyPage() {

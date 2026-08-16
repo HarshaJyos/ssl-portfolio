@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata = {
   title: 'Terms & Conditions | SSL Fintech',
   description: 'Review the terms of service, broker aggregator disclosures, and loan sanction rules of SSL Solutions.',
+  alternates: {
+    canonical: '/terms-and-conditions',
+  },
 }
 
 export default function TermsAndConditionsPage() {

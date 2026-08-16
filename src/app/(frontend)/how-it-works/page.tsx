@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata = {
   title: 'How It Works | SSL Fintech',
   description: 'Learn about our simple aggregator/DSA model to apply and compare loan options from top banks and NBFC partners.',
+  alternates: {
+    canonical: '/how-it-works',
+  },
 }
 
 export default function HowItWorksPage() {

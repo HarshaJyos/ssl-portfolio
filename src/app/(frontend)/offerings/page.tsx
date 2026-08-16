@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata = {
   title: 'Our Offerings | SSL Fintech',
   description: 'Explore our complete product basket including Mutual Funds, Equity & ETFs, NPS, PMS, Loans, and Insurance options tailored to your needs.',
+  alternates: {
+    canonical: '/offerings',
+  },
 }
 
 export default function OfferingsPage() {

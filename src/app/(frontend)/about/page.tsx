@@ -5,6 +5,9 @@ import Link from 'next/link'
 export const metadata = {
   title: 'About Us | SSL Fintech',
   description: 'Incorporated in 2018, SSL Fintech is a partner of NJ Wealth, committed to helping clients fulfill their financial goals with smart investment assessments.',
+  alternates: {
+    canonical: '/about',
+  },
 }
 
 export default function AboutPage() {

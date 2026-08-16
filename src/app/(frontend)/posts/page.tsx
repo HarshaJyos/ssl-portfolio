@@ -68,6 +68,10 @@ export default async function Page() {
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Payload Website Template Posts`,
+    title: `Fintech Blog | SSL Fintech`,
+    description: 'Expert financial advice, credit insights, and wealth management tips in Bengaluru from SSL Fintech.',
+    alternates: {
+      canonical: '/posts',
+    },
   }
 }

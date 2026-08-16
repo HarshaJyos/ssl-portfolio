@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata = {
   title: 'Grievance & Complaints | SSL Fintech',
   description: 'Understand the dispute escalation and grievance channels for SSL Solutions and our lending partners.',
+  alternates: {
+    canonical: '/grievance-complaints',
+  },
 }
 
 export default function GrievanceComplaintsPage() {

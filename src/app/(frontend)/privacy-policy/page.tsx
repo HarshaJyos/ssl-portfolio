@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata = {
   title: 'Privacy Policy | SSL Fintech',
   description: 'Learn how SSL Solutions handles, processes, and protects your confidential data under our strict 30-day retention policies.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 }
 
 export default function PrivacyPolicyPage() {
