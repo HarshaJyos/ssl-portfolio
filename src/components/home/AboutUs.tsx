@@ -106,7 +106,7 @@ export default function AboutUs() {
             <div className="flex items-center gap-4 relative z-10 px-2">
               <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 relative">
                 <Image
-                  src="/assets/founder.png"
+                  src="/assets/founder.jpeg"
                   alt="Raja Mylaravarapu"
                   fill
                   sizes="64px"
