@@ -29,7 +29,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
       <div className="max-w-6xl mx-auto space-y-20">
-        
+
         {/* Hero Section & Breadcrumbs */}
         <section className="text-center space-y-4">
           <div className="text-sm font-semibold tracking-wider text-[#00acb7] uppercase">
@@ -80,7 +80,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Bottom Stats Banner (Teal) */}
           <div className="bg-gradient-to-r from-[#00acb7] to-[#00728a] p-8 md:p-12 text-white">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
@@ -147,7 +147,7 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 max-w-4xl mx-auto">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-lg shrink-0 relative">
               <Image
-                src="/assets/founder.png"
+                src="/assets/founder.jpeg"
                 alt="Raja Mylaravarapu"
                 fill
                 sizes="(max-width: 768px) 128px, 160px"
@@ -178,7 +178,7 @@ export default function AboutPage() {
               We leverage strong tools and a structured process to support your overall well-being.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((val, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-[#00acb7]/30 transition-all hover:shadow-[0px_8px_30px_rgba(0,0,0,0.04)] space-y-3">
