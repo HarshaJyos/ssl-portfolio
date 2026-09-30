@@ -2,16 +2,57 @@ import React from 'react'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Grievance & Complaints | SSL Fintech',
-  description: 'Understand the dispute escalation and grievance channels for SSL Solutions and our lending partners.',
+  title: 'Grievance & Complaints Redressal | SSL Fintech',
+  description: 'Official dispute escalation matrix and grievance redressal officer details for SSL Fintech and lending partner escalations in Bengaluru.',
   alternates: {
     canonical: '/grievance-complaints',
+  },
+  openGraph: {
+    title: 'Grievance & Complaints Redressal | SSL Fintech',
+    description: 'Official dispute escalation matrix and grievance redressal officer details for SSL Fintech and lending partner escalations in Bengaluru.',
+    url: '/grievance-complaints',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
 export default function GrievanceComplaintsPage() {
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Grievance & Complaints",
+                "item": "https://www.sslfintech.org/grievance-complaints"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header */}

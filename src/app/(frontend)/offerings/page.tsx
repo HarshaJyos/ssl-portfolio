@@ -2,10 +2,26 @@ import React from 'react'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Our Offerings | SSL Fintech',
-  description: 'Explore our complete product basket including Mutual Funds, Equity & ETFs, NPS, PMS, Loans, and Insurance options tailored to your needs.',
+  title: 'Our Offerings | Loan & Wealth Products | SSL Fintech',
+  description: 'Explore our complete financial product basket: Personal Loans, Business Loans, Home Loans, Mutual Funds, NPS, PMS, and Insurance tailored for Bengaluru clients.',
   alternates: {
     canonical: '/offerings',
+  },
+  openGraph: {
+    title: 'Our Offerings | Loan & Wealth Products | SSL Fintech',
+    description: 'Explore our complete financial product basket: Personal Loans, Business Loans, Home Loans, Mutual Funds, NPS, PMS, and Insurance tailored for Bengaluru clients.',
+    url: '/offerings',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
@@ -67,6 +83,31 @@ export default function OfferingsPage() {
 
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Our Offerings",
+                "item": "https://www.sslfintech.org/offerings"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-6xl mx-auto space-y-20">
         
         {/* Header section */}

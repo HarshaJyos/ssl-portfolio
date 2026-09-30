@@ -6,6 +6,8 @@ import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
+import Link from 'next/link'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import PageClient from './page.client'
 
 export const dynamic = 'force-static'
@@ -40,9 +42,43 @@ export default async function Page() {
   return (
     <div className="pt-24 pb-24">
       <PageClient />
-      <div className="container mb-16">
+      
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog & Guides",
+                "item": "https://www.sslfintech.org/posts"
+              }
+            ]
+          })
+        }}
+      />
+
+      <div className="container mb-12">
+        <div className="text-sm font-semibold tracking-wider text-[#00acb7] uppercase mb-4">
+          <Link href="/" className="hover:underline">Home</Link> &gt; Blog &amp; Insights
+        </div>
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+          <h1 className="font-['DM_Serif_Display'] text-4xl md:text-5xl text-[#014865] mb-4">
+            Financial Insights &amp; Guides
+          </h1>
+          <p className="text-gray-600 text-base md:text-lg max-w-2xl leading-relaxed">
+            Stay informed with expert guidance on personal loans, interest rate comparisons, banking eligibility criteria, and wealth management strategies in Bengaluru.
+          </p>
         </div>
       </div>
 
@@ -67,11 +103,38 @@ export default async function Page() {
 }
 
 export function generateMetadata(): Metadata {
+  const title = 'Fintech Blog & Loan Guides | SSL Fintech'
+  const description = 'Expert financial advice, credit insights, and personal loan guides in Bengaluru from SSL Fintech.'
+
   return {
-    title: `Fintech Blog | SSL Fintech`,
-    description: 'Expert financial advice, credit insights, and wealth management tips in Bengaluru from SSL Fintech.',
+    title,
+    description,
     alternates: {
       canonical: '/posts',
     },
+    openGraph: mergeOpenGraph({
+      title,
+      description,
+      url: '/posts',
+    }),
+    twitter: {
+      card: 'summary_large_image',
+      creator: '@sslfintech',
+      site: '@sslfintech',
+      title,
+      description,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   }
 }
+

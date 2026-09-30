@@ -1,17 +1,23 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const SITE_URL =
-    process.env.NEXT_PUBLIC_SERVER_URL ||
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-    'https://www.sslfintech.org'
+  const SITE_URL = 'https://www.sslfintech.org'
 
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/admin',
-    },
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: [
+          '/admin',
+          '/api/',
+          '/search',
+          '/*?*q=*',
+          '/*?*draft=*',
+        ],
+      },
+    ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   }
 }

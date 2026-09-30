@@ -3,15 +3,56 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Privacy Policy | SSL Fintech',
-  description: 'Learn how SSL Solutions handles, processes, and protects your confidential data under our strict 30-day retention policies.',
+  description: 'Learn how SSL Fintech handles, processes, and protects your confidential data under our strict 30-day retention policies.',
   alternates: {
     canonical: '/privacy-policy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | SSL Fintech',
+    description: 'Learn how SSL Fintech handles, processes, and protects your confidential data under our strict 30-day retention policies.',
+    url: '/privacy-policy',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Privacy Policy",
+                "item": "https://www.sslfintech.org/privacy-policy"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header */}

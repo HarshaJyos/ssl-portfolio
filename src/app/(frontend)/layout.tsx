@@ -113,41 +113,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               },
               {
                 "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                  {
-                    "@type": "Question",
-                    "name": "What is the minimum monthly income requirement for a loan at SSL Fintech?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Salaried individuals applying for personal or business loans through SSL Fintech must have a minimum monthly income of ₹25,000."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "What are the interest rates for loans at SSL Fintech?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "As an aggregator, SSL Fintech connects you to partner banks and NBFCs with loan interest rates starting from 9.99% up to 26% per annum, depending on the lender's credit policies."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Does SSL Fintech charge any consultation or service fees?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "No, SSL Fintech does not charge applicants any service fee, brokerage commission, or consulting charges. Customers only pay the standard administrative processing fees directly to the sanctioning bank or NBFC."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "How long does SSL Fintech retain customer data?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "To guarantee customer confidentiality, all personal information and loan inquiry documents are permanently and securely deleted from our databases exactly 30 days after form submission."
-                    }
-                  }
-                ]
+                "@type": "WebSite",
+                "name": "SSL Fintech",
+                "alternateName": "SSL Fintech Private Limited",
+                "url": "https://www.sslfintech.org"
               }
             ])
           }}
@@ -159,9 +128,26 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
+  title: {
+    default: 'SSL Fintech | Personal Loans & Mutual Funds Bengaluru',
+    template: '%s | SSL Fintech',
+  },
+  description: 'Leading loan aggregator and financial broker (DSA) in Bengaluru. Connecting customers with top Banks and NBFC partners for personal loans, business loans, and wealth solutions.',
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@sslfintech',
+    site: '@sslfintech',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }

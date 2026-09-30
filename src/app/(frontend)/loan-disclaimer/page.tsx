@@ -2,16 +2,57 @@ import React from 'react'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Loan Disclaimer | SSL Fintech',
-  description: 'Compliance disclosure clarifying that SSL Solutions is a referral aggregator / DSA facilitator, not a direct lender.',
+  title: 'Loan Disclaimer | DSA Aggregator Compliance | SSL Fintech',
+  description: 'Compliance disclosure clarifying that SSL Fintech is a referral aggregator / DSA facilitator, connecting borrowers with RBI-licensed banks and NBFCs.',
   alternates: {
     canonical: '/loan-disclaimer',
+  },
+  openGraph: {
+    title: 'Loan Disclaimer | DSA Aggregator Compliance | SSL Fintech',
+    description: 'Compliance disclosure clarifying that SSL Fintech is a referral aggregator / DSA facilitator, connecting borrowers with RBI-licensed banks and NBFCs.',
+    url: '/loan-disclaimer',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
 export default function LoanDisclaimerPage() {
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Loan Disclaimer",
+                "item": "https://www.sslfintech.org/loan-disclaimer"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header */}

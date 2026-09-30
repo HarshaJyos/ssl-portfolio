@@ -9,6 +9,7 @@ import Process from "@/components/home/Process";
 import Offerings from "@/components/home/Offerings";
 import Testimonials from "@/components/home/Testimonials";
 import Insights from "@/components/home/Insights";
+import Faq from "@/components/home/Faq";
 import CtaBanner from "@/components/home/CtaBanner";
 import ApplyModal from "@/components/home/ApplyModal";
 import type { Post } from "@/payload-types";
@@ -34,6 +35,7 @@ export default function HomeClient({ initialPosts }: HomeClientProps) {
       <Offerings onApply={() => setApplyModalOpen(true)} />
       <Testimonials />
       <Insights posts={initialPosts} />
+      <Faq />
       <CtaBanner onApply={() => setApplyModalOpen(true)} />
 
       <ApplyModal isOpen={applyModalOpen} onClose={() => setApplyModalOpen(false)} />

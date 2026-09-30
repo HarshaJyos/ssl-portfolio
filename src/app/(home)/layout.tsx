@@ -149,6 +149,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     }
                   }
                 ]
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "SSL Fintech",
+                "alternateName": "SSL Fintech Private Limited",
+                "url": "https://www.sslfintech.org"
               }
             ])
           }}
@@ -160,14 +167,30 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
-  title: "SSL Fintech | Personal Loans Made Simple",
-  description: "Helping individuals, families, and businesses secure the right financing with expert guidance on Personal Loans, Home Loans, Business Loans, and smart investment solutions.",
-  openGraph: mergeOpenGraph(),
+  title: "SSL Fintech | Personal Loans & Mutual Funds Bengaluru",
+  description: "Helping individuals, families, and businesses secure the right financing with expert guidance on Personal Loans, Home Loans, Business Loans, and smart investment solutions in Bengaluru.",
+  openGraph: mergeOpenGraph({
+    title: "SSL Fintech | Personal Loans & Mutual Funds Bengaluru",
+    description: "Helping individuals, families, and businesses secure the right financing with expert guidance on Personal Loans, Home Loans, Business Loans, and smart investment solutions in Bengaluru.",
+    url: '/',
+  }),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@sslfintech',
+    site: '@sslfintech',
   },
   alternates: {
     canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }

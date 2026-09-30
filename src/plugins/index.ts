@@ -14,13 +14,16 @@ import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+  return doc?.title ? `${doc.title} | SSL Fintech` : 'SSL Fintech | Personal Loans & Mutual Funds Bengaluru'
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
   const url = getServerSideURL()
 
-  return doc?.slug ? `${url}/${doc.slug}` : url
+  if (!doc?.slug) return url
+  if (doc.slug === 'home') return url
+  // If it's a post doc, URL should be /posts/[slug]
+  return `${url}/${doc.slug}`
 }
 
 export const plugins: Plugin[] = [

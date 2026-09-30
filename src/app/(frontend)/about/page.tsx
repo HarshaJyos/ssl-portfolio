@@ -4,9 +4,25 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'About Us | SSL Fintech',
-  description: 'Incorporated in 2018, SSL Fintech is a partner of NJ Wealth, committed to helping clients fulfill their financial goals with smart investment assessments.',
+  description: 'Incorporated in 2018, SSL Fintech is an AMFI-registered mutual fund distributor (ARN-302874) and loan aggregator in Bengaluru, supporting 6,000+ satisfied clients.',
   alternates: {
     canonical: '/about',
+  },
+  openGraph: {
+    title: 'About Us | SSL Fintech',
+    description: 'Incorporated in 2018, SSL Fintech is an AMFI-registered mutual fund distributor (ARN-302874) and loan aggregator in Bengaluru, supporting 6,000+ satisfied clients.',
+    url: '/about',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
@@ -28,6 +44,31 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About Us",
+                "item": "https://www.sslfintech.org/about"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-6xl mx-auto space-y-20">
 
         {/* Hero Section & Breadcrumbs */}

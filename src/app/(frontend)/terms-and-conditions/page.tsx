@@ -3,15 +3,56 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Terms & Conditions | SSL Fintech',
-  description: 'Review the terms of service, broker aggregator disclosures, and loan sanction rules of SSL Solutions.',
+  description: 'Review the terms of service, broker aggregator disclosures, and loan sanction rules of SSL Fintech.',
   alternates: {
     canonical: '/terms-and-conditions',
+  },
+  openGraph: {
+    title: 'Terms & Conditions | SSL Fintech',
+    description: 'Review the terms of service, broker aggregator disclosures, and loan sanction rules of SSL Fintech.',
+    url: '/terms-and-conditions',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
 export default function TermsAndConditionsPage() {
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Terms & Conditions",
+                "item": "https://www.sslfintech.org/terms-and-conditions"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header */}

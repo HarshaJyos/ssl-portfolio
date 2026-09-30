@@ -32,12 +32,13 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data, isHome = false
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
-  const navItems = data?.navItems || [
-    { link: { type: 'custom', url: '/', label: 'Home' } },
-    { link: { type: 'custom', url: '/about', label: 'About Us' } },
-    { link: { type: 'custom', url: '/offerings', label: 'Offerings' } },
-    { link: { type: 'custom', url: '/tools', label: 'Tools' } },
-    { link: { type: 'custom', url: '/contact', label: 'Contact Us' } },
+  const navItems = data?.navItems && data.navItems.length > 0 ? data.navItems : [
+    { link: { type: 'custom' as const, url: '/', label: 'Home' } },
+    { link: { type: 'custom' as const, url: '/about', label: 'About Us' } },
+    { link: { type: 'custom' as const, url: '/offerings', label: 'Offerings' } },
+    { link: { type: 'custom' as const, url: '/tools', label: 'Tools' } },
+    { link: { type: 'custom' as const, url: '/posts', label: 'Blog' } },
+    { link: { type: 'custom' as const, url: '/contact', label: 'Contact Us' } },
   ]
 
 

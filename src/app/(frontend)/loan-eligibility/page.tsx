@@ -3,16 +3,57 @@ import Link from 'next/link'
 import { Coins, BarChart2, CreditCard } from 'lucide-react'
 
 export const metadata = {
-  title: 'Loan Eligibility Criteria | SSL Fintech',
-  description: 'Understand the parameters and criteria required by banks and NBFC partners to qualify for personal and business loans.',
+  title: 'Loan Eligibility Criteria | Salary & CIBIL Requirements | SSL Fintech',
+  description: 'Check personal and business loan eligibility criteria: ₹25,000 minimum salary, CIBIL score 700+, and mandatory KYC documentation for Bengaluru applicants.',
   alternates: {
     canonical: '/loan-eligibility',
+  },
+  openGraph: {
+    title: 'Loan Eligibility Criteria | Salary & CIBIL Requirements | SSL Fintech',
+    description: 'Check personal and business loan eligibility criteria: ₹25,000 minimum salary, CIBIL score 700+, and mandatory KYC documentation for Bengaluru applicants.',
+    url: '/loan-eligibility',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
 export default function LoanEligibilityPage() {
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Loan Eligibility Criteria",
+                "item": "https://www.sslfintech.org/loan-eligibility"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header */}

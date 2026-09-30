@@ -44,3 +44,8 @@ next-env.d.ts
 payload-website-starter-main.zip
 
 EMI-Caliculator.xlsx
+
+# local scripts & reports
+/scripts/
+/coverage_report/
+*.zip

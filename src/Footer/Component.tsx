@@ -79,14 +79,17 @@ export async function Footer() {
           <h4 className="font-['DM_Serif_Display'] text-xl uppercase tracking-wider mb-6">Quick Links</h4>
           <ul className="space-y-3 text-white/80 text-sm">
             {navItems.length > 0 ? (
-              navItems.map((item, i) => {
-                if (!item || !item.link) return null
-                return (
-                  <li key={i}>
-                    <CMSLink {...item.link} className="hover:text-white transition-colors text-white/80" />
-                  </li>
-                )
-              })
+              <>
+                {navItems.map((item, i) => {
+                  if (!item || !item.link) return null
+                  return (
+                    <li key={i}>
+                      <CMSLink {...item.link} className="hover:text-white transition-colors text-white/80" />
+                    </li>
+                  )
+                })}
+                <li><Link href="/posts" className="hover:text-white transition-colors text-white/80">Blog &amp; Insights</Link></li>
+              </>
             ) : (
               <>
                 <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
@@ -94,6 +97,7 @@ export async function Footer() {
                 <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
                 <li><Link href="/loan-eligibility" className="hover:text-white transition-colors">Loan Eligibility</Link></li>
                 <li><Link href="/tools" className="hover:text-white transition-colors">Tools</Link></li>
+                <li><Link href="/posts" className="hover:text-white transition-colors">Blog &amp; Insights</Link></li>
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               </>
             )}

@@ -83,6 +83,14 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Payload Website Template Search`,
+    title: 'Search | SSL Fintech',
+    description: 'Search financial tools, loan guides, and credit resources on SSL Fintech.',
+    robots: {
+      index: false,
+      follow: true,
+    },
+    alternates: {
+      canonical: '/search',
+    },
   }
 }

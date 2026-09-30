@@ -2,10 +2,26 @@ import React from 'react'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'How It Works | SSL Fintech',
-  description: 'Learn about our simple aggregator/DSA model to apply and compare loan options from top banks and NBFC partners.',
+  title: 'How It Works | Loan Aggregator Process | SSL Fintech',
+  description: 'Understand the simple 5-step loan aggregator process at SSL Fintech: from application and profile assessment to bank comparison and direct disbursal in Bengaluru.',
   alternates: {
     canonical: '/how-it-works',
+  },
+  openGraph: {
+    title: 'How It Works | Loan Aggregator Process | SSL Fintech',
+    description: 'Understand the simple 5-step loan aggregator process at SSL Fintech: from application and profile assessment to bank comparison and direct disbursal in Bengaluru.',
+    url: '/how-it-works',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
@@ -40,6 +56,31 @@ export default function HowItWorksPage() {
 
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "How It Works",
+                "item": "https://www.sslfintech.org/how-it-works"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header */}

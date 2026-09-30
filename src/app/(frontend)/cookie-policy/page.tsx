@@ -3,15 +3,56 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Cookie Policy | SSL Fintech',
-  description: 'Understand how cookies and session storage are utilized on the SSL Solutions portal.',
+  description: 'Understand how cookies and local session storage are utilized on the SSL Fintech portal to ensure safe user navigation.',
   alternates: {
     canonical: '/cookie-policy',
+  },
+  openGraph: {
+    title: 'Cookie Policy | SSL Fintech',
+    description: 'Understand how cookies and local session storage are utilized on the SSL Fintech portal to ensure safe user navigation.',
+    url: '/cookie-policy',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
 export default function CookiePolicyPage() {
   return (
     <main className="min-h-screen bg-[#f6f3f3] py-16 px-4 md:px-12">
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.sslfintech.org"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Cookie Policy",
+                "item": "https://www.sslfintech.org/cookie-policy"
+              }
+            ]
+          })
+        }}
+      />
+
       <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Header */}

@@ -31,10 +31,12 @@ export const generateMeta = async (args: {
     ? doc?.meta?.title + ' | SSL Fintech'
     : 'SSL Fintech | Personal Loans & Mutual Funds Bengaluru'
 
+  const resolvedCanonical = canonicalPath || (doc?.slug ? (doc.slug === 'home' ? '/' : `/${doc.slug}`) : '/')
+
   return {
-    description: doc?.meta?.description,
+    description: doc?.meta?.description || 'Leading loan aggregator and financial advisory in Bengaluru. Connecting customers with top Banks and NBFC partners for personal and business loans.',
     openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || '',
+      description: doc?.meta?.description || 'Leading loan aggregator and financial advisory in Bengaluru. Connecting customers with top Banks and NBFC partners for personal and business loans.',
       images: ogImage
         ? [
             {
@@ -43,11 +45,22 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url: resolvedCanonical,
     }),
     title,
     alternates: {
-      canonical: canonicalPath || (doc?.slug ? (doc.slug === 'home' ? '/' : `/${doc.slug}`) : '/'),
+      canonical: resolvedCanonical,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   }
 }
